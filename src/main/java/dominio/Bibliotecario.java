@@ -26,7 +26,7 @@ public class Bibliotecario {
 
 	public void prestar(String isbn, String nombreUsuario) {
 		
-		Libro existe = repositorioLibro.obtenerPorIsbn(isbn);
+		Libro existe = repositorioPrestamo.obtenerLibroPrestadoPorIsbn(isbn);
 		if(existe!=null){
 			throw new PrestamoException(Bibliotecario.EL_LIBRO_NO_SE_ENCUENTRA_DISPONIBLE);
 		}
@@ -48,7 +48,7 @@ public class Bibliotecario {
 	
 
 	public boolean esPrestado(String isbn) {			
-		return repositorioPrestamo.obtener(isbn)!=null ? true : false;		
+		return repositorioPrestamo.obtenerLibroPrestadoPorIsbn(isbn) !=null ? true : false;		
 	}
 	public boolean esPalindrome(String numberOnly){
 		return numberOnly.equals(new StringBuilder(numberOnly).reverse().toString());		

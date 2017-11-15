@@ -63,7 +63,7 @@ public class BibliotecarioTest {
 	public void prestarLibroNoDisponibleTest() {
 
 		// arrange
-		Libro libro = new LibroTestDataBuilder().conTitulo(CRONICA_DE_UNA_MUERTA_ANUNCIADA).build();
+		Libro libro = new LibroTestDataBuilder().conTitulo(CRONICA_DE_UNA_MUERTA_ANUNCIADA).conIsbn("87jhg").build();
 		
 		repositorioLibros.agregar(libro);
 		

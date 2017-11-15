@@ -33,7 +33,6 @@ public class RepositorioPrestamoPersistente implements RepositorioPrestamo {
 	public void agregar(Prestamo prestamo) {
 
 		PrestamoEntity prestamoEntity = buildPrestamoEntity(prestamo);
-
 		entityManager.persist(prestamoEntity);
 	}
 
