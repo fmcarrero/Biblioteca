@@ -46,7 +46,7 @@ public class BibliotecarioTest {
 	public void prestarLibroTest() {
 
 		// arrange
-		Libro libro = new LibroTestDataBuilder().conTitulo(CRONICA_DE_UNA_MUERTA_ANUNCIADA).build();
+		Libro libro = new LibroTestDataBuilder().conTitulo(CRONICA_DE_UNA_MUERTA_ANUNCIADA).build();		
 		repositorioLibros.agregar(libro);
 		Bibliotecario blibliotecario = new Bibliotecario(repositorioLibros, repositorioPrestamo);
 
