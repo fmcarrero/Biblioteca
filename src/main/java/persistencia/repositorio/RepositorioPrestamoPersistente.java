@@ -1,5 +1,7 @@
 package persistencia.repositorio;
 
+import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 
 import javax.persistence.EntityManager;
@@ -18,6 +20,7 @@ public class RepositorioPrestamoPersistente implements RepositorioPrestamo {
 
 	private static final String ISBN = "isbn";
 	private static final String PRESTAMO_FIND_BY_ISBN = "Prestamo.findByIsbn";
+	
 
 	private EntityManager entityManager;
 
@@ -75,4 +78,6 @@ public class RepositorioPrestamoPersistente implements RepositorioPrestamo {
 				LibroBuilder.convertirADominio(prestamoEntity.getLibro()), prestamoEntity.getFechaEntregaMaxima(),
 				prestamoEntity.getNombreUsuario());
 	}
+	
+	
 }

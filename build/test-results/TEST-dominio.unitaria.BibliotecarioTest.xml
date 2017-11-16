@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="dominio.unitaria.BibliotecarioTest" tests="2" skipped="0" failures="0" errors="0" timestamp="2017-11-15T03:27:04" hostname="DESKTOP-BD43J8F" time="0.123">
+<testsuite name="dominio.unitaria.BibliotecarioTest" tests="3" skipped="0" failures="0" errors="0" timestamp="2017-11-16T01:06:11" hostname="DESKTOP-BD43J8F" time="0.159">
   <properties/>
-  <testcase name="esPrestadoTest" classname="dominio.unitaria.BibliotecarioTest" time="0.122"/>
+  <testcase name="esPrestadoTest" classname="dominio.unitaria.BibliotecarioTest" time="0.15"/>
+  <testcase name="Prestar" classname="dominio.unitaria.BibliotecarioTest" time="0.008"/>
   <testcase name="libroNoPrestadoTest" classname="dominio.unitaria.BibliotecarioTest" time="0.0"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>

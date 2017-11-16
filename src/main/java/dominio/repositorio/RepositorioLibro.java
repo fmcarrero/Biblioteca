@@ -1,5 +1,7 @@
 package dominio.repositorio;
 
+import java.util.Date;
+
 import dominio.Libro;
 
 public interface RepositorioLibro {
@@ -16,5 +18,6 @@ public interface RepositorioLibro {
 	 * @param libro
 	 */
 	void agregar(Libro libro);
+	
 
 }

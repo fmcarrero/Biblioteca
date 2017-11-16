@@ -15,6 +15,7 @@ public class Bibliotecario {
 	public static final String LOS_LIBROS_PALINDROMOS_SOLO_SE_PUEDE_UTILIZAR_EN_LA_BIBLIOTECA="los libros palíndromos solo se pueden utilizar en la biblioteca";
 	public final int Cantidad =30;
 	public final int MaximoDias =14;
+	
 	private RepositorioLibro repositorioLibro;
 	private RepositorioPrestamo repositorioPrestamo;
 
@@ -46,7 +47,25 @@ public class Bibliotecario {
 		repositorioPrestamo.agregar(prestamo);
 	}
 	
-
+	
+	public Date CalcularFechaEntregaMaxima(Date fecha){
+		Calendar cal = Calendar.getInstance();
+		cal.setTime(fecha);
+		int businessDayCounter=0;	
+		int dayOfWeek=0;
+		while (businessDayCounter < MaximoDias) {
+		    dayOfWeek = cal.get(Calendar.DAY_OF_WEEK);
+		    if (dayOfWeek != Calendar.SUNDAY) {
+		        businessDayCounter++;		       
+		    }
+		    cal.add(Calendar.DAY_OF_YEAR, 1);		    
+		}
+		//valida si el dia es domingo de ser asi agrega un dia mas
+		if(cal.get(Calendar.DAY_OF_WEEK) ==Calendar.SUNDAY){
+			 cal.add(Calendar.DAY_OF_YEAR, 1);
+		}
+		return cal.getTime();		
+	}
 	public boolean esPrestado(String isbn) {			
 		return repositorioPrestamo.obtenerLibroPrestadoPorIsbn(isbn) !=null ? true : false;		
 	}
@@ -55,24 +74,7 @@ public class Bibliotecario {
 	}
 	public String getNumbers(String isbn){
 		return  isbn.replaceAll("[^0-9]", "");		
-	}
-	public Date CalcularFechaEntregaMaxima(Date fecha){
-		Calendar cal = Calendar.getInstance();
-		cal.setTime(fecha);
-		int businessDayCounter=0;	
-		 int dayOfWeek=0;
-		while (businessDayCounter <MaximoDias) {
-		    dayOfWeek = cal.get(Calendar.DAY_OF_WEEK);
-		    if (dayOfWeek != Calendar.SUNDAY) {
-		        businessDayCounter++;		       
-		    }
-		    cal.add(Calendar.DAY_OF_YEAR, 1);		    
-		}
-		if(cal.get(Calendar.DAY_OF_WEEK) ==Calendar.SUNDAY){
-			 cal.add(Calendar.DAY_OF_YEAR, 1);
-		}
-		return cal.getTime();		
-	}
+	}	
 	
 	public long sumDigits(long i) {
 	    return i == 0 ? 0 : i % 10 + sumDigits(i / 10);

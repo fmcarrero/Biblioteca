@@ -1,5 +1,7 @@
 package dominio.repositorio;
 
+import java.util.Date;
+
 import dominio.Libro;
 import dominio.Prestamo;
 
@@ -23,5 +25,6 @@ public interface RepositorioPrestamo {
 	 * @param isbn
 	 */
 	Prestamo obtener(String isbn);
+	
 
 }

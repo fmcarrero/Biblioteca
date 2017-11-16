@@ -81,4 +81,20 @@ public class BibliotecarioTest {
 			Assert.assertEquals(Bibliotecario.EL_LIBRO_NO_SE_ENCUENTRA_DISPONIBLE, e.getMessage());
 		}
 	}
+	@Test
+	public void prestarLibroPalindrome(){
+		// arrange
+		Libro libro = new LibroTestDataBuilder().conTitulo(CRONICA_DE_UNA_MUERTA_ANUNCIADA).conIsbn("ag1221htg").build();
+		repositorioLibros.agregar(libro);
+		Bibliotecario blibliotecario = new Bibliotecario(repositorioLibros, repositorioPrestamo);		
+		try {			
+			// act
+			blibliotecario.prestar(libro.getIsbn(),NombreUsuario);
+			fail();
+			
+		} catch (UnsupportedOperationException e) {
+			// assert
+			Assert.assertEquals(Bibliotecario.LOS_LIBROS_PALINDROMOS_SOLO_SE_PUEDE_UTILIZAR_EN_LA_BIBLIOTECA, e.getMessage());
+		}
+	}
 }
